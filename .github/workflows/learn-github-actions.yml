@@ -2,7 +2,7 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push, pull_request, workflow_dispatch]
 jobs:
-  check-bats-version:
+  explore-github-workflows:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -11,3 +11,8 @@ jobs:
           node-version: "14"
       - run: npm install -g bats
       - run: bats -v
+      - name: Upload Build Artifact
+        uses: actions/@upload-artifact@v3
+        with:
+          path: testfile.txt
+        retention-days: 14
