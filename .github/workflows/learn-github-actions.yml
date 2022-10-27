@@ -11,8 +11,8 @@ jobs:
           node-version: "14"
       - run: npm install -g bats
       - run: bats -v
-      - name: Upload Build Artifact
-        uses: actions/@upload-artifact@v3
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.1
         with:
-          path: testfile.txt
-        retention-days: 14
+          path: testfile.text
+        retention-days: 10
